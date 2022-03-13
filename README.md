@@ -1,0 +1,9 @@
+# sentiment_analysis
+- Twitterから単語検索でツイート取得してきて、感情分析した結果のサマリを返してくれるやつになる予定
+- 下記のツールを使用
+  - 感情分析
+      - BERT
+      - [Vader](https://www.codeproject.com/Articles/5269445/Using-Pre-trained-VADER-Models-for-NLTK-Sentiment)
+      - [pymlask](https://github.com/ikegami-yukino/pymlask)
+  - 翻訳
+      - [googletrans](https://libraries.io/pypi/googletrans)
