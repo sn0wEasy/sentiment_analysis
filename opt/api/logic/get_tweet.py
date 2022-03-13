@@ -8,7 +8,7 @@ class GetTweet:
         self.exclude_retweet = "-is:retweet"
         self.max_results = 100
         self.sort_order = "recency"
-        self.limit = 500
+        self.limit = 1000
     
     def get_tweets(self, word, start_time, end_time):
         # Twitterオブジェクトの生成
