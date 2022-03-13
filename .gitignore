@@ -1,0 +1,4 @@
+__pycache__/
+opt/tweets/
+opt/api/tweets/
+.env
