@@ -29,3 +29,4 @@ RUN python -m pip install mecab-python3==0.7
 RUN python -m pip install pymlask
 RUN python -m pip install googletrans==4.0.0-rc1
 RUN python -m pip install nltk
+RUN python -m pip install transformers
