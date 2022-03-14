@@ -4,12 +4,12 @@ import os, re
 
 class GetTweet:
 
-    def __init__(self):
+    def __init__(self, limit):
         # デフォルトパラメータの設定
         self.exclude_retweet = "-is:retweet"
         self.max_results = 100
         self.sort_order = "recency"
-        self.limit = 1000
+        self.limit = limit
     
     def get_tweets(self, word, start_time, end_time):
         # Twitterオブジェクトの生成
