@@ -3,7 +3,7 @@ nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from googletrans import Translator
 from tqdm import tqdm
- 
+
 
 class VaderAnalyzer:
 
