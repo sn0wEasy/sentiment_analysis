@@ -1,4 +1,5 @@
 import tweepy
+import emoji
 import os, re
 
 class GetTweet:
@@ -32,7 +33,13 @@ class GetTweet:
         for i, tweet in enumerate(paginator.flatten(limit=self.limit)):
             # URLを含むツイートを除外
             pattern = "https?://[\w/:%#\$&\?\(\)~\.=\+\-]+"
-            if not re.findall(pattern, tweet.text):
+            # ハッシュタグを2個以上含むツイートを除外
+            hashtag_cnt = tweet.text.count('#')
+            # 絵文字を3個以上含むツイートを除外
+            emoji_cnt = sum([1 if char in emoji.UNICODE_EMOJI else 0 for char in tweet.text])
+            if not re.findall(pattern, tweet.text) \
+                and hastag_cnt <= 1 \
+                and emoji_cnt <= 2:
                 tweets.append({
                     'author_id': tweet.author_id,
                     'created_at': tweet.created_at,
