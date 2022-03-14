@@ -32,19 +32,18 @@ class AnalyzeAPI:
         end_time = request['end_time']
 
         tweet_dict = GetTweet().get_tweets(word, start_time, end_time)
-        res_bert = BertAnalyzer().bert_analyzer(tweet_dict)
+        # res_bert = BertAnalyzer().bert_analyzer(tweet_dict)
         res_vader = VaderAnalyzer().vader_analyzer(tweet_dict)
         # res_pymlask = PyMLAskAnalyzer().pymlask_analyzer(tweet_dict)
 
-        # response = request | {'bert': res_bert} | {'vader': res_vader} | {'pymlask': res_pymlask}
-        response = request | {'bert': res_bert} | {'vader': res_vader}
+        response = request | {'vader': res_vader}
         return response
 
 if __name__ == '__main__':
     api = AnalyzeAPI()
     request = {
-        'word': 'Twitter',
-        'start_time': '2022-03-12T00:00:00Z',
+        'word': 'apex',
+        'start_time': '2022-03-07T00:00:00Z',
         'end_time': '2022-03-12T23:59:59Z',
     }
     result = api.main(request)
