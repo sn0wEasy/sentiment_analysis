@@ -7,9 +7,9 @@ class PyMLAskAnalyzer:
     def __init__(self):
         self.emotion_analyzer = MLAsk()
 
-    def pymlask_analyzer(self, tweets):
+    def pymlask_analyzer(self, tweet_list):
         
-        for tweet in tqdm(tweets):
+        for tweet in tqdm(tweet_list):
             text = re.sub('\n', ' ', tweet.text)
             result = self.emotion_analyzer.analyze(text)
 

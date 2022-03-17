@@ -7,11 +7,11 @@ from tqdm import tqdm
 
 class VaderAnalyzer:
 
-    def vader_analyzer(self, tweets):
+    def vader_analyzer(self, tweet_list):
         tr = Translator()
         vader_analyzer = SentimentIntensityAnalyzer()
         neg, neu, pos, compound = 0, 0, 0, 0
-        for tweet in tqdm(tweets):
+        for tweet in tqdm(tweet_list):
             # 英語ツイート時にNoneが返されるので無視する
             try:
                 text_en = tr.translate(tweet['text'], src="ja", dest="en").text
@@ -26,7 +26,7 @@ class VaderAnalyzer:
             pos += analyzed['pos']
             compound += analyzed['compound']
 
-        count = len(tweets)
+        count = len(tweet_list)
         result = {
             'neg': neg/count,
             'neu': neu/count,
