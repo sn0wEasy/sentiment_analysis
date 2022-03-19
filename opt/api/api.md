@@ -1,11 +1,16 @@
 
-# 指定可能対象
+# 対象選択
 - api/available_words
     - Request:
     - Response:
-        - available_words: dict
-            - Key: word
-            - Value: {start_date: date, end_date: date}
+        - available_words:
+            - name: list
+- api/available_timepoints
+    - Request:
+        - word: string
+    - Response:
+        - start_date: date
+        - end_date: date
 
 # 集約
 - api/vader_sentiment_agg
