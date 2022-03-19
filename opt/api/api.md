@@ -3,8 +3,8 @@
 - api/available_words
     - Request:
     - Response:
-        - available_words:
-            - name: list
+        - available_words: list
+
 - api/available_timepoints
     - Request:
         - word: string
@@ -22,6 +22,7 @@
         - neu: float
         - pos: float
         - compound: float
+        - count: int
 
 - api/bert_sentiment_agg
     - Request:
@@ -30,6 +31,7 @@
     - Response:
         - neg: float
         - pos: float
+        - count: int
 
 - api/pymlask_sentiment_agg
 
