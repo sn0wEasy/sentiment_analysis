@@ -15,6 +15,7 @@
 # 集約
 - api/vader_sentiment_agg
     - Request:
+        - word: string
         - begin_date: date
         - end_date: date
     - Response:
@@ -26,6 +27,7 @@
 
 - api/bert_sentiment_agg
     - Request:
+        - word: string
         - begin_date: date
         - end_date: date
     - Response:
