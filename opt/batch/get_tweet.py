@@ -11,7 +11,7 @@ class GetTweet:
         self.sort_order = "recency"
         self.limit = limit
     
-    def get_tweets(self, word, start_time, end_time):
+    def get_tweets(self, word, begin_time, end_time):
         # Twitterオブジェクトの生成
         bearer = os.environ.get('BEARER_TOKEN')
         api = tweepy.Client(bearer)
@@ -24,7 +24,7 @@ class GetTweet:
             query=self.query,
             max_results=self.max_results,
             sort_order=self.sort_order,
-            start_time=start_time,
+            begin_time=begin_time,
             end_time=end_time
         )
 
@@ -49,7 +49,7 @@ class GetTweet:
                 txt += tweet.text
                 txt += "\n\n"
 
-        with open(f"/workspace/opt/api/tweets/tweet_{word}_{start_time}_{end_time}.txt", mode="w") as f:
+        with open(f"/workspace/opt/api/tweets/tweet_{word}_{begin_time}_{end_time}.txt", mode="w") as f:
             f.write(txt)
         
         return tweets

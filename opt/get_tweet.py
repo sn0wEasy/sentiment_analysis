@@ -25,14 +25,14 @@ for i in range(length):
         (dt.datetime(criterion_YYYY, criterion_MM, criterion_DD) \
         + dt.timedelta(days=i)).date()
     )
-    start_time = f"{date}T00:00:00Z"
+    begin_time = f"{date}T00:00:00Z"
     end_time = f"{date}T23:59:59Z"
     paginator = tweepy.Paginator(
         api.search_recent_tweets,
         query=query,
         max_results=max_results,
         sort_order=sort_order,
-        start_time=start_time,
+        begin_time=begin_time,
         end_time=end_time,
         tweet_fields="author_id,conversation_id,created_at"
     )
@@ -46,10 +46,10 @@ for i in range(length):
             "created_at": str(tweet.created_at)
         }
         
-    start_date = start_time.split('T')[0].replace('-', '')
+    begin_date = begin_time.split('T')[0].replace('-', '')
     end_date = end_time.split('T')[0].replace('-', '')
     search_word_replaced = search_word.replace(" ", "_")
     os.makedirs(f"/workspace/opt/tweets/{search_word_replaced}", exist_ok=True)
-    with open(f"/workspace/opt/tweets/{search_word_replaced}/{start_time}_{end_time}.json", mode="w") as f:
+    with open(f"/workspace/opt/tweets/{search_word_replaced}/{begin_time}_{end_time}.json", mode="w") as f:
         json.dump(json_dict, f, ensure_ascii=False)
 

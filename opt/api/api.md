@@ -9,13 +9,13 @@
     - Request:
         - word: string
     - Response:
-        - start_date: date
+        - begin_date: date
         - end_date: date
 
 # 集約
 - api/vader_sentiment_agg
     - Request:
-        - start_date: date
+        - begin_date: date
         - end_date: date
     - Response:
         - neg: float
@@ -26,7 +26,7 @@
 
 - api/bert_sentiment_agg
     - Request:
-        - start_date: date
+        - begin_date: date
         - end_date: date
     - Response:
         - neg: float

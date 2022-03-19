@@ -9,12 +9,12 @@ class SentimentAnalyzeAPI:
         """
         Request: dict
             word: 検索単語
-            start_date: 検索期間始点断面
+            begin_date: 検索期間始点断面
             end_date: 検索期間終点断面
 
         Response: dict
             word: 検索単語
-            start_date: 検索期間始点断面
+            begin_date: 検索期間始点断面
             end_date: 検索期間終点断面
             count: ヒット件数
             bert: dict
@@ -27,10 +27,10 @@ class SentimentAnalyzeAPI:
                 compound: 複合スコア
         """
         word = request['word']
-        start_date = request['start_date']
+        begin_date = request['begin_date']
         end_date = request['end_date']
 
-        tweet_list = LoadTweet().load_tweet(word, start_date, end_date)
+        tweet_list = LoadTweet().load_tweet(word, begin_date, end_date)
         # res_bert = BertAnalyzer().bert_analyzer(tweet_list)
         res_vader = VaderAnalyzer().vader_analyzer(tweet_list)
         # res_pymlask = PyMLAskAnalyzer().pymlask_analyzer(tweet_list)
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     api = SentimentAnalyzeAPI()
     request = {
         'word': 'aupay',
-        'start_date': '2022-03-09',
+        'begin_date': '2022-03-09',
         'end_date': '2022-03-12',
     }
     response = api.main(request)
