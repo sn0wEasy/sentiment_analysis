@@ -17,8 +17,8 @@ sort_order = "recency"
 limit = 10000
 criterion_YYYY = 2022
 criterion_MM = 3
-criterion_DD = 11
-length = 6
+criterion_DD = 19
+length = 1
 
 for i in range(length):
     date = str(
@@ -32,7 +32,7 @@ for i in range(length):
         query=query,
         max_results=max_results,
         sort_order=sort_order,
-        begin_time=begin_time,
+        start_time=begin_time,
         end_time=end_time,
         tweet_fields="author_id,conversation_id,created_at"
     )
@@ -45,11 +45,9 @@ for i in range(length):
             "text": tweet.text,
             "created_at": str(tweet.created_at)
         }
-        
-    begin_date = begin_time.split('T')[0].replace('-', '')
-    end_date = end_time.split('T')[0].replace('-', '')
+
     search_word_replaced = search_word.replace(" ", "_")
     os.makedirs(f"/workspace/opt/tweets/{search_word_replaced}", exist_ok=True)
-    with open(f"/workspace/opt/tweets/{search_word_replaced}/{begin_time}_{end_time}.json", mode="w") as f:
+    with open(f"/workspace/opt/tweets/{search_word_replaced}/{date}.json", mode="w") as f:
         json.dump(json_dict, f, ensure_ascii=False)
 
