@@ -38,7 +38,7 @@ class GetTweet:
             # 絵文字を3個以上含むツイートを除外
             emoji_cnt = sum([1 if char in emoji.UNICODE_EMOJI else 0 for char in tweet.text])
             if not re.findall(pattern, tweet.text) \
-                and hastag_cnt <= 1 \
+                and hashtag_cnt <= 1 \
                 and emoji_cnt <= 2:
                 tweets.append({
                     'author_id': tweet.author_id,
