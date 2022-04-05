@@ -2,11 +2,11 @@ from transformers import AutoModelForSequenceClassification, BertJapaneseTokeniz
 
 class BertAnalyzer:
 
-    def bert_analyzer(self, tweet_list):
+    def word_bert_analyzer(self, tweet_list):
         # 学習済みモデルの読込み
         model = AutoModelForSequenceClassification.from_pretrained('daigo/bert-base-japanese-sentiment') 
         tokenizer = BertJapaneseTokenizer.from_pretrained('cl-tohoku/bert-base-japanese-whole-word-masking')
-        nlp = pipeline("sentiment-analysis",model=model,tokenizer=tokenizer)
+        nlp = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
 
         # 感情分析
         score_neg, score_pos = 0, 0

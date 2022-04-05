@@ -1,5 +1,6 @@
 __pycache__/
 opt/tweets/
+opt/tweets_exception/
 opt/json/
-opt/api/tweets/
+opt/batch/logs/
 .env
